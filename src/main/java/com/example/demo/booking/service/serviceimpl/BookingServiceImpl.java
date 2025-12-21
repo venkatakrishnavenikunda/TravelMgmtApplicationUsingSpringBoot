@@ -1,0 +1,61 @@
+package com.example.demo.booking.service.serviceimpl;
+
+import com.example.demo.booking.dto.requestdto.BookingRequestDto;
+import com.example.demo.booking.entity.Booking;
+import com.example.demo.booking.repository.BookingRepository;
+import com.example.demo.booking.service.BookingService;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.UUID;
+
+@Service
+@AllArgsConstructor
+public class BookingServiceImpl implements BookingService {
+    private  final BookingRepository bookingRepository;
+
+    //Add Booking service implementation
+    @Override
+    public Booking addBooking(BookingRequestDto bookingRequestDto) {
+        Booking booking=new Booking();
+        /*BeanUtils.copyProperties(bookingRequestDto,booking);
+        return bookingRepository.save(booking);*/
+
+        booking.setStartdate(bookingRequestDto.getStartdate());
+        booking.setEnddate(bookingRequestDto.getEnddate());
+        booking.setBookingStatus(bookingRequestDto.getBookingStatus());
+        return bookingRepository.save(booking);
+
+    }
+
+    //Get all bookings service implementation
+    @Override
+    public List<Booking> getAllBooking(){
+        return bookingRepository.findAll();
+    }
+
+
+    //Get bookings by user Id
+    @Override
+    public List<Booking> getBookingByUser(UUID userId) {
+        return bookingRepository.findByMember_Id(userId);
+    }
+
+
+    //Update booking status by booking id
+    @Override
+    public Booking updateBookingStatus(Integer bookingId, Booking.BookingStatus status) {
+        Booking booking = bookingRepository.findById(bookingId).orElseThrow(() -> new RuntimeException("Booking not found with id: " + bookingId));
+        booking.setBookingStatus(status);
+        return bookingRepository.save(booking);
+    }
+
+    //Delete booking by booking id
+    @Override
+    public void deleteBooking(Integer bookingId) {
+        bookingRepository.deleteById(bookingId);
+    }
+
+}
