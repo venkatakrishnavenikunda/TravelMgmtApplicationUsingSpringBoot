@@ -20,9 +20,9 @@ public class BookingRequestDto {
     private LocalDate enddate;
     @NotNull
     private Booking.BookingStatus bookingStatus;
-    //@NotNull
-    private Integer memberId;
-    //@NotNull
+    @NotNull
+    private UUID memberId;
+    @NotNull
     private  Integer locationId;
 
 }

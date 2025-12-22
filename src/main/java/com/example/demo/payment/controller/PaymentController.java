@@ -30,5 +30,4 @@ public class PaymentController {
     public String verifyPayment(@RequestBody PaymentResponseDto paymentResponseDto) {
         return service.verifyPayment(paymentResponseDto);
     }
-
 }

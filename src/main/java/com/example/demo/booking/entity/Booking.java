@@ -41,9 +41,6 @@ public class Booking {
     @JoinColumn(name="location_id")
     private Location location;
 
-    @ManyToOne
-    @JoinColumn(name = "package_id")
-    private TravelPackage packages;
 
     //private String staus; //To map payment
 
