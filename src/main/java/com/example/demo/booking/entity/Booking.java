@@ -42,6 +42,6 @@ public class Booking {
     private Location location;
 
 
-    //private String staus; //To map payment
+    //private String staus; //To mapping payment module
 
 }
