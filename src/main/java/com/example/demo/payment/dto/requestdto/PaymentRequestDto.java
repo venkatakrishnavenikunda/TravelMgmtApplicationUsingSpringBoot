@@ -11,6 +11,7 @@ import lombok.Setter;
 public class PaymentRequestDto {
 
     private Double amount;
+    private  String bookingId;
 
   /*  //To map booking
     private String razorPayOrderId;

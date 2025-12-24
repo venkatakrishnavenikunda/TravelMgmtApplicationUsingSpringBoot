@@ -3,6 +3,8 @@ package com.example.demo.location.entity;
 import com.example.demo.booking.entity.Booking;
 import com.example.demo.member.entity.Member;
 import com.example.demo.travelpackage.entity.TravelPackage;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -11,6 +13,7 @@ import java.util.UUID;
 
 @Data
 @Entity
+@JsonIgnoreProperties({"members", "travelPackageList", "bookingList"})
 public class Location {
 
     @Id
@@ -32,6 +35,7 @@ public class Location {
     @JoinTable(name = "location_member",
             joinColumns = @JoinColumn(name = "member_id"),
             inverseJoinColumns = @JoinColumn(name = "location_id"))
+    @JsonIgnore
     private List<Member> members;
 
     @OneToMany

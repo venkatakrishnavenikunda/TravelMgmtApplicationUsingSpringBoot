@@ -15,10 +15,14 @@ import java.util.UUID;
 public class BookingResponseDto {
     private Integer id;
     private String bookingId;
-    private String bookingStatus;
+   // private String bookingStatus;
     private LocalDate startdate;
     private LocalDate enddate;
     private Integer memberId;
     private Integer locationId;
+
+    private  String locationName;
+    private String packageName;
+
 
 }

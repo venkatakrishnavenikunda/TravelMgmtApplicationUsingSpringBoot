@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -29,9 +30,13 @@ public class TravelPackage {
     @JoinColumn(name="member_id")
     private Member member;
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name="booking-id")
     private Booking booking;
+*/
+
+    @OneToMany(mappedBy = "travelPackage")
+    private List<Booking> bookingList;
 
     @ManyToOne
     @JoinColumn(name = "location_id")

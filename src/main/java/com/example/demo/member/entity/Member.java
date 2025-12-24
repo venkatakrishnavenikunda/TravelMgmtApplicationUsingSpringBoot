@@ -3,6 +3,7 @@ package com.example.demo.member.entity;
 import com.example.demo.booking.entity.Booking;
 import com.example.demo.feedback.entity.Feedback;
 import com.example.demo.location.entity.Location;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.util.List;
@@ -35,6 +36,7 @@ public class Member {
     private List<Feedback> feedbacks;
 
     @OneToMany(mappedBy = "member")
+    @JsonIgnore
     private List<Booking>booking;
 
 }

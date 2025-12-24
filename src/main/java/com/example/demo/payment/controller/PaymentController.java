@@ -21,9 +21,12 @@ public class PaymentController {
 
     //Add Payment
     @PostMapping("/addPayment")
-    public Payment addPayment(@RequestBody PaymentRequestDto paymentRequestDto) throws Exception{
+    public PaymentResponseDto addPayment(@RequestBody PaymentRequestDto paymentRequestDto)
+            throws Exception {
+
         return service.createPayment(paymentRequestDto);
     }
+
 
     //Verify Payment
     @PostMapping("/verifyPayment")

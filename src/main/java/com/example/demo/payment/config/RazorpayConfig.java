@@ -19,33 +19,3 @@ public class RazorpayConfig {
         return new RazorpayClient(keyId, keySecret);
     }
 }
-
-
-
-
-
-
-/*
-package com.example.demo.payment.config;
-
-import com.razorpay.RazorpayClient;
-import org.springframework.beans.factory.annotation.Value;
-
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-
-@Configuration
-public @interface RazorpayConfig {
-
-    @Value("${razorpay.api.key}")
-    private String keyId;
-
-    @Value("$(razorpay.api.secret)")
-    private String keySecret;
-
-    @Bean
-    public RazorpayClient razorpayClient() throws Exception {
-        return new RazorpayClient(keyId, keySecret);
-    }
-}
-*/

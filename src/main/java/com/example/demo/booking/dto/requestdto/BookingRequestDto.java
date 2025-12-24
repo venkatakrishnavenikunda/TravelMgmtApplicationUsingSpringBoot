@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -24,6 +25,8 @@ public class BookingRequestDto {
     private UUID memberId;
     @NotNull
     private  Integer locationId;
+    @NotNull
+    private Integer packageId;
 
 }
 

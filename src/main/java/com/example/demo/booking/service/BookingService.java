@@ -1,6 +1,7 @@
 package com.example.demo.booking.service;
 
 import com.example.demo.booking.dto.requestdto.BookingRequestDto;
+import com.example.demo.booking.dto.responsedto.BookingResponseDto;
 import com.example.demo.booking.entity.Booking;
 
 import java.awt.print.Book;
@@ -12,6 +13,8 @@ public interface BookingService {
     Booking addBooking(BookingRequestDto bookingRequestDto);
 
     List<Booking> getAllBooking();
+
+    List<BookingResponseDto> getAllBookings();
 
     List<Booking> getBookingByUser(UUID userId);
 

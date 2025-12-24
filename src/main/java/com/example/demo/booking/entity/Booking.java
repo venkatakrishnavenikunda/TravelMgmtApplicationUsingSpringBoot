@@ -3,6 +3,8 @@ package com.example.demo.booking.entity;
 import com.example.demo.location.entity.Location;
 import com.example.demo.member.entity.Member;
 import com.example.demo.travelpackage.entity.TravelPackage;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -12,11 +14,11 @@ import java.util.UUID;
 
 @Data
 @Entity
+@JsonIgnoreProperties({"member","location","travelPackage"})
 public class Booking {
 
     public enum BookingStatus {
-        BOOKED,
-        CANCELLED
+        BOOKED, CANCELLED
     }
 
     @Enumerated(EnumType.STRING)
@@ -32,10 +34,16 @@ public class Booking {
 
     @ManyToOne
     @JoinColumn(name="member_id")
+    @JsonIgnore
     private Member member;
 
-    @OneToMany(mappedBy = "booking")
-    private List<TravelPackage> travelPackageList;
+//    @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
+//    private List<TravelPackage> travelPackageList;
+
+    @ManyToOne
+    @JoinColumn(name="package_id")
+    private TravelPackage travelPackage;
+
 
     @ManyToOne
     @JoinColumn(name="location_id")

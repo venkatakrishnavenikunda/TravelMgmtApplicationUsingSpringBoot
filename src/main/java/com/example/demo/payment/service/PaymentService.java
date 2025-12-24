@@ -7,8 +7,7 @@ import com.razorpay.RazorpayException;
 
 public interface PaymentService {
 
-    Payment createPayment(PaymentRequestDto paymentRequestDto) throws RazorpayException;
-
+    PaymentResponseDto createPayment(PaymentRequestDto paymentRequestDto) throws RazorpayException;
 
     String verifyPayment(PaymentResponseDto paymentResponseDto);
 

@@ -59,7 +59,15 @@
             <scope>test</scope>
         </dependency>
 
-        <!--      Swagger    2.5.0-->
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+
+        <!--Swagger- 2.5.0-->
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
