@@ -2,6 +2,7 @@ package com.example.demo.payment.service.serviceimpl;
 
 import com.example.demo.booking.entity.Booking;
 import com.example.demo.booking.repository.BookingRepository;
+import com.example.demo.generic.redisconfig.CacheNames;
 import com.example.demo.payment.dto.requestdto.PaymentRequestDto;
 import com.example.demo.payment.dto.responsedto.PaymentResponseDto;
 import com.example.demo.payment.entity.Payment;
@@ -10,6 +11,9 @@ import com.example.demo.payment.service.PaymentService;
 import com.razorpay.Order;
 import com.razorpay.RazorpayClient;
 import com.razorpay.RazorpayException;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.CacheEvict;
 import lombok.AllArgsConstructor;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
@@ -24,6 +28,11 @@ public class PaymentServiceImpl implements PaymentService {
     private final RazorpayClient razorpayClient;
     private final BookingRepository bookingRepository;
 
+/*
+    @Cacheable(
+            value = CacheNames.PAYMENT_BY_ORDER_ID,
+            key = "#razorPayOrderId")
+*/
 
     //Create Payment
     @Override
@@ -109,6 +118,11 @@ public class PaymentServiceImpl implements PaymentService {
         paymentRepository.save(payment);
         return "Payment verified successfully";
     }
+
+    /*@Override
+    public Payment getPaymentByOrderId(String razorPayOrderId) {
+        return paymentRepository.findByRazorPayOrderId(razorPayOrderId);;
+    }*/
 
 
 

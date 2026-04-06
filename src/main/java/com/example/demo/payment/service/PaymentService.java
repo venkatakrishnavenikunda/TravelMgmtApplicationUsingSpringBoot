@@ -11,5 +11,7 @@ public interface PaymentService {
 
     String verifyPayment(PaymentResponseDto paymentResponseDto);
 
+    //Payment getPaymentByOrderId(String razorPayOrderId);
+
     //String verifyPayment(String orderId, String paymentId, String signature);
 }
