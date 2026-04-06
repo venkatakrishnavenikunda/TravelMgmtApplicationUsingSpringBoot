@@ -40,7 +40,7 @@ public class BookingController {
     //Get Booking details by User Id
     @GetMapping("/getBookingByUserid/{id}")
     public commonResponse getBookingsByUserId(@PathVariable @Positive(message = "User Id must be positive")UUID id){
-        return new commonResponse(false, "Bookings fetched successfully for user", bookingService.getBookingByUser(id));
+        return new commonResponse(false, "Bookings fetched successfully for user.", bookingService.getBookingByUser(id));
     }
 
     //Delete Booking
